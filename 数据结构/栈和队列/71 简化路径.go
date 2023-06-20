@@ -34,7 +34,7 @@ func simplifyPath(path string) string {
 	for _, name := range strings.Split(path, "/") {
 		if name == ".." {
 			if len(stack) > 0 {
-				stack = stack[:len(stack)-1]
+				stack = stack[:len(stack)-1]// 去掉末尾最后一个目录
 			}
 		} else if name != "" && name != "." {
 			stack = append(stack, name)

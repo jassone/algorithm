@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 //LeetCode 20. 有效的括号
 
 //给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
@@ -29,7 +31,7 @@ package main
 
 //再举个例子，linux系统中，cd这个进入目录的命令我们应该再熟悉不过了。
 //cd a/b/c/../../
-//这个命令最后进入a目录，系统是如何知道进入了a目录呢 ，这就是栈的应用（其实可以出一道相应的面试题了）
+//这个命令最后进入a目录，系统是如何知道进入了a目录呢 ，这就是栈的应用
 
 //所以栈在计算机领域中应用是非常广泛的。
 
@@ -46,7 +48,7 @@ package main
 //  {[]}()}
 // 动画： https://pic.imgdb.cn/item/6282726209475431290e8c2c.gif
 
-// 方法1：栈
+// 方法1：栈，推荐1
 //时间复杂度：O(n)，其中 n 是字符串 s 的长度。
 //空间复杂度：O(n+∣Σ∣)，其中 Σ 表示字符集，本题中字符串只包含 6 种括号，∣Σ∣=6。
 // 栈中的字符数量为 O(n)，而哈希表使用的空间为 O(∣Σ∣)，相加即可得到总空间复杂度。
@@ -64,7 +66,7 @@ func isValid(s string) bool {
 	for i := 0; i < n; i++ {
 		if pairs[s[i]] > 0 {
 			// 比如 }[] 这时候就是 len(stack) == 0
-			// 第二个判断的判断是否有左括号
+			// 第二个判断:判断是否有左括号
 			if len(stack) == 0 || stack[len(stack)-1] != pairs[s[i]] {
 				return false
 			}
@@ -76,7 +78,32 @@ func isValid(s string) bool {
 	// 这里判断是否都匹配完了
 	return len(stack) == 0
 }
+// 方法2：前后循环对比法，推荐2
+// 如果符合条件，则字符串长度是偶数，且整个字符串呈现一种对称性
+func isValid2(s string) bool{
+	len := len(s)
+	if len == 0 || len %2 != 0 {
+		return false
+	}
+	pairs := map[byte]byte{
+		'{':'}',
+		'[':']',
+		'(':')',
+	}
+	for i:=0;i<len/2;i++{
+		v1,ok1:=pairs[s[i]]
+		if ok1 && v1 == s[len-1-i]{
+			// todo
+		} else{
+			return false
+		}
+	}
+
+	return true
+}
 
 func main() {
-
+	s := "(({[]}))"
+	fmt.Println(isValid(s))
+	fmt.Println(isValid2(s))
 }

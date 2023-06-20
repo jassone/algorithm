@@ -9,9 +9,10 @@ import (
 // 给我们一个字符串，让我们求最长的无重复字符的子串，
 // 注意这里是子串，不是子序列，所以必须是连续的。
 
-// 方法，滑动窗口法
-// 顾名思义，所谓的滑动窗口就是可以在一个序列上进行滑动的窗口。其中窗口大小有固定长度的，
-//也有可变长度的。例如给定数组[2,2,3,4,8,99,3]，窗口大小为3，求出每个窗口的元素和就是
+// 方法1：暴力算法，两个for循环
+
+// 方法2，滑动窗口法
+//例如给定数组[2,2,3,4,8,99,3]，窗口大小为3，求出每个窗口的元素和就是
 //固定大小窗口的问题，如果求数组[2,2,3,4,8,99,3] 的最长连续子数组就是窗口可变的问题。
 //使用滑动窗口，我们可以有效减低算法的时间复杂度。
 
@@ -24,13 +25,14 @@ func lengthOfLongestSubstring(s string) int {
 	for index, value := range []rune(s) {
 		if usedIndex, ok := usedMap[value]; ok {
 			leftIndex = usedIndex + 1
+			// 一旦发现重复，则窗口从后面开始，前面的都抛弃掉
 			//fmt.Println(index,string(value), usedIndex,leftIndex)
 		} else {
 			currentMaxCount = index - leftIndex + 1
 			maxCount = max(maxCount, currentMaxCount)
 		}
 
-		usedMap[value] = index
+		usedMap[value] = index // 注意这里会覆盖前面的key，即起到了删除之前老数据的作用
 	}
 
 	return maxCount

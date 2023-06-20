@@ -23,7 +23,7 @@ func display(node *ListNode) {
 	}
 }
 
-//方法一：递归-官方
+//方法一：递归-官方，推荐
 //时间复杂度：O(n)，其中 n 是链表的长度。递归过程中需要遍历链表一次。
 //空间复杂度：O(n)，其中 n 是链表的长度。空间复杂度主要取决于递归调用栈，最多不会超过 n 层。
 func removeElements(head *ListNode, val int) *ListNode {
@@ -37,7 +37,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 	return head
 }
 
-//方法二：迭代-官方
+//方法二：迭代-官方，推荐
 //重点是引入一个哑节点
 //也可以用迭代的方法删除链表中所有节点值等于特定值的节点。
 //时间复杂度：O(n)，其中 n 是链表的长度。需要遍历链表一次。
@@ -79,5 +79,4 @@ func main() {
 	//removeElements(head, target)
 	removeElements2(head, target)
 	display(head)
-
 }

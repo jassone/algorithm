@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 //LeetCode 1047. 删除字符串中的所有相邻重复项
 
 //给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。
@@ -17,7 +19,7 @@ package main
 
 //1 <= S.length <= 20000
 //S 仅由小写英文字母组成。
-// 方法1：栈-官方
+// 方法1：栈-官方,推荐
 //时间复杂度：O(n)，其中 n 是字符串的长度。我们只需要遍历该字符串一次。
 //空间复杂度：O(n) 或 O(1)，取决于使用的语言提供的字符串类是否提供了类似「入栈」和「出栈」的接口。
 // 注意返回值不计入空间复杂度。
@@ -34,5 +36,6 @@ func removeDuplicates(s string) string {
 }
 
 func main() {
-
+	str := "abbaca"
+	fmt.Println(removeDuplicates(str))
 }

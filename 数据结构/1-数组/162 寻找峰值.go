@@ -31,6 +31,11 @@ func findPeakElement(nums []int) (idx int) {
 			idx = i
 		}
 	}
+	// 修复下，如果数组是{1,2,3}，则不符合
+	if idx == len(nums)-1 {
+		idx = -1
+	}
+
 	return
 }
 
@@ -68,13 +73,14 @@ func f2(nums []int) int {
 	return max
 }
 
-// 方法2：二分法
+// 方法2：二分法，推荐
 //定义高低两个指针low，high，分别指向数组首尾
 //1 定义中间指针mid=(low+high)/2我们知道二分法的结束标志是low>=high，当low==high的时候，算法肯定结束
 //2 然后我们每次判断中间值，如果中间值处于下降状态，那么可以肯定中间值的左边有比中间值大的数，
 // 而数组两头又是非常小的数，所以峰值肯定在左边，所以我们二分法的下一次开始就是让high=mid
 //3 如果中间值处于上升状态，那么峰值肯定就在中间值的右边，所以二分法的下一次开始就是让low=mid+1
-//你需要仔细感受high=mid和low=mid+1这两个等式，揣摩细微之处，可以发现low随着mid移动，而high最多等于mid，仔细揣摩他们的区别
+//你需要仔细感受high=mid和low=mid+1这两个等式，揣摩细微之处，可以发现low随着mid移动，而high最多等于mid，
+//仔细揣摩他们的区别
 func f1(nums []int) int {
 	low, high := 0, len(nums)-1
 	for low < high {

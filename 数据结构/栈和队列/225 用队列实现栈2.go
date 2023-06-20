@@ -17,7 +17,7 @@ import "fmt"
 
 // 方法2：一队列来实现, 这个更形象
 //一个队列在模拟栈弹出元素的时候只要将队列头部的元素（除了最后一个元素外） 重新添加到队列尾部，
-// 此时在去弹出元素就是栈的顺序了。
+// 此时再去弹出元素就是栈的顺序了。
 
 type MyStack struct {
 	queue []int //创建一个队列
@@ -49,7 +49,11 @@ func (this *MyStack) Pop() int {
 	val := this.queue[0]
 	this.queue = this.queue[1:]
 	return val
-
+	// 但是感觉下面这样也可以啊
+	//n:= len(this.queue)
+	//val := this.queue[n-1]
+	//this.queue = this.queue[:n-1]
+	//return val
 }
 
 /** Get the top element. */
@@ -67,9 +71,14 @@ func (this *MyStack) Empty() bool {
 
 func main() {
 	stack := Constructor()
-	stack.Push(1)
-	fmt.Println(stack.Top())
+	stack.Push(111)
+	stack.Push(22)
+	stack.Push(33)
+	//fmt.Println(stack.Top())
 	fmt.Println(stack.Pop())
 	fmt.Println(stack.Empty())
-
+	fmt.Println(stack.Pop())
+	fmt.Println(stack.Empty())
+	fmt.Println(stack.Pop())
+	fmt.Println(stack.Empty())
 }

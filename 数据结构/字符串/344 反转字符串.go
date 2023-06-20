@@ -21,7 +21,7 @@ func reverseString(s []byte) {
 	}
 }
 
-// 卡尔版-更清晰
+// 卡尔版-更清晰,推荐
 func reverseString2(s []byte) {
 	left := 0
 	right := len(s) - 1

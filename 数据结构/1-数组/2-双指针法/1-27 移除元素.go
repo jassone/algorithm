@@ -21,7 +21,7 @@ import "fmt"
 func f1(arr []int, target int) int {
 	end := len(arr)
 	for i := 0; i < end; {
-		if arr[i] == target { // 注意：如果找到了目标数后，i不能++，因为替换后的数可能还是目标数
+		if arr[i] == target { // 注意注意：如果找到了目标数后，i不能++，因为替换后的数可能还是目标数
 			for j := i + 1; j < end; j++ {
 				arr[j-1] = arr[j]
 			}

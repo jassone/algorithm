@@ -34,7 +34,7 @@ func isAnagram2(s, t string) bool {
 	return string(s1) == string(s2)
 }
 
-// 方法3：hash法-官方
+// 方法3：hash法-官方,推荐
 //时间复杂度：O(n)，其中 n 为 s 的长度。
 //空间复杂度：O(S)，其中 S 为字符集大小，此处 S=26。
 func isAnagram3(s, t string) bool {

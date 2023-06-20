@@ -29,7 +29,7 @@ package main
 var res [][]int
 var track []int
 
-// 同类型 77 216
+// 同类型 77 216, 推荐
 // +剪枝
 func combine33(n int, k int) [][]int {
 	res = [][]int{}

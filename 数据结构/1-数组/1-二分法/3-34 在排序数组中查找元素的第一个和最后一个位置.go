@@ -30,7 +30,7 @@ import (
 // 思路
 // 两个二分方法，一个找最左，一个找最右
 
-// 方法1：二分法
+// 方法1：二分法，推荐
 func f1(arr []int, target int) []int {
 	leftMix := getLeft(arr, target)
 	rightMax := getRight(arr, target)

@@ -2,9 +2,10 @@ package main
 
 import "fmt"
 
+// todo
 //LeetCode 28. 实现 strStr()
 
-//实现 strStr() 函数。
+//实现 strStr() 函数。即从一个字符串中找到另外一个字符串的起始位置
 
 //给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置
 // (从0开始)。如果不存在，则返回  -1。
@@ -16,7 +17,7 @@ import "fmt"
 // 当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
 
 // 方法1：暴力-官方
-//时间复杂度：O(n×m)，其中 nn 是字符串 haystack 的长度，mm 是字符串 needle 的长度。
+//时间复杂度：O(n×m)，其中 n 是字符串 haystack 的长度，m 是字符串 needle 的长度。
 // 最坏情况下我们需要将字符串 needle 与字符串 haystack 的所有长度为 m 的子串均匹配一次。
 //空间复杂度：O(1)。我们只需要常数的空间保存若干变量。
 func strStr1(haystack, needle string) int {

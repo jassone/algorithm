@@ -20,6 +20,7 @@ import (
 // 方案1，暴力-官方
 // 最简单暴力的方法就是直接把nums2放入nums1的后n个位置，
 // 然后直接对nums1进行排序就好了。
+
 //时间复杂度： O((m+n)log(m+n))。
 //排序序列长度为  m+n，套用快速排序的时间复杂度即可，平均情况为  O((m+n)log(m+n))。
 //空间复杂度： O(log(m+n))。
@@ -60,7 +61,7 @@ func merge(nums1 []int, m int, nums2 []int, n int) []int {
 			p2++
 		}
 	}
-	copy(nums1, sorted)
+	copy(nums1, sorted) // 这一步是为了删掉末尾多余的0元素
 
 	return nums1
 }

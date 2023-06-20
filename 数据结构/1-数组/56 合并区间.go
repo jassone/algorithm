@@ -5,12 +5,13 @@ import (
 	"sort"
 )
 
+// todo
 //LeetCode 56. 合并区间
 // https://leetcode-cn.com/problems/merge-intervals/solution/he-bing-qu-jian-by-leetcode-solution/
 
-//以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。
+//数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。
 //请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
-//
+
 //输入：intervals = [ [1，3]，[2，6]，[8，10]，[15，18] ]
 //输出：[ [1，6]，[8，10]，[15，18] ]
 //解释：区间 [1，3] 和 [2，6]
@@ -23,7 +24,7 @@ import (
 //首先，我们用数组 merged 存储最终的答案。然后我们将第一个区间加入 merged 数组中，
 //并按顺序依次考虑之后的每个区间：
 
-//  1 如果当前区间的左端点在数组 merged 中最后一个区间的右端点之后，即上图中的第二种情况，
+//  1 如果当前区间的左端点在数组 merged 中最后一个区间的右端点之后，即上图中的第1种情况，
 //  那么它们不会重合。我们可以直接将这个区间加入数组 merged 的末尾；
 
 //  2 否则，它们是有重合部分的，即上图中的第二、三种情况，我们需要用当前区间的右端点更新数组

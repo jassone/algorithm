@@ -9,7 +9,7 @@ package main
 
 //示例:
 //输入: s = "abcdefg", k = 2
-//输出: "bacdfeg"
+//输出: "bacdfeg"    ab反转  ef反转
 
 // 方法一：模拟-官方
 //我们直接按题意进行模拟：反转每个下标从 2k 的倍数开始的，长度为 k 的子串。若该子串长度不足 k，
@@ -36,7 +36,7 @@ func min(a, b int) int {
 	return b
 }
 
-// 卡尔解法-更清晰
+// 卡尔解法-更清晰，推荐
 func reverseStr2(s string, k int) string {
 	ss := []byte(s)
 	length := len(s)

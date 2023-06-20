@@ -28,7 +28,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-// 方法一：深度优先搜索-官方
+// 方法一：深度优先搜索-官方,推荐
 //时间复杂度：O(n)，其中 n 为二叉树节点的个数。每个节点在递归中只被遍历一次。
 //空间复杂度：O(height)，其中 height 表示二叉树的高度。递归函数需要栈空间，而栈空间取决于递归的深度
 // 因此空间复杂度等价于二叉树的高度。
@@ -36,7 +36,15 @@ func maxDepth1(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	return max(maxDepth1(root.Left), maxDepth1(root.Right)) + 1
+	// 左
+	leftDepth := maxDepth1(root.Left)
+	// 右
+	rightDepth := maxDepth1(root.Right)
+	// 中
+	return max(leftDepth, rightDepth) + 1
+
+	// 或者简化为下面这样
+	//return max(maxDepth1(root.Left), maxDepth1(root.Right)) + 1
 }
 func max(a, b int) int {
 	if a > b {
@@ -98,8 +106,8 @@ func maxDepth333(root *TreeNode) int {
 }
 
 // 卡尔总结
-//本题可以使用前序，也可以使用后序遍历（左右中），使用前序求的就是深度，使用后序呢求的是高度。
-// 使用了前序（中左右）的遍历顺序，这才是真正求深度的逻辑！
+//本题可以使用前序，也可以使用后序遍历（左右中），使用前序求的就是深度，使用后序求的是高度。
+// 使用前序（中左右）的遍历顺序，这才是真正求深度的逻辑！
 
 //而根节点的高度就是二叉树的最大深度，所以本题中我们通过后序求的根节点高度来求的二叉树最大深度，
 // 所以当前题目中使用的是后序遍历。

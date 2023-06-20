@@ -3,14 +3,15 @@ package main
 import "container/list"
 
 // 同类型590 589 429
-//LeetCode 给定一个 N 叉树，返回其节点值的层序遍历。 (即从左到右，逐层遍历)。
+//LeetCode 429 N 叉树的层序遍历
+// 给定一个 N 叉树，返回其节点值的层序遍历。 (即从左到右，逐层遍历)。
 
 type Node struct {
 	Val      int
 	Children []*Node
 }
 
-//方法一：广度优先搜索
+//方法一：广度优先搜索，推荐
 
 //思路与算法
 //1 对于「层序遍历」的题目，我们一般使用广度优先搜索。在广度优先搜索的每一轮中，我们会遍历同一层的所有节点。
@@ -32,7 +33,7 @@ func levelOrder1(root *Node) (ans [][]int) {
 	for q != nil {
 		level := []int{} // 定义临时层数组
 		tmp := q
-		q = nil
+		q = nil // 每一层都重置下
 		for _, node := range tmp {
 			level = append(level, node.Val) // 当前层的所有原始值放进临时层数组中
 			q = append(q, node.Children...) // 当前层下的所有子节点放入到队列中
@@ -53,7 +54,8 @@ func levelOrder(root *Node) [][]int {
 	for queue.Len() > 0 {
 		length := queue.Len() //记录当前层的数量
 		var tmp []int
-		for T := 0; T < length; T++ { //该层的每个元素：一添加到该层的结果集中；二找到该元素的下层元素加入到队列中，方便下次使用
+		for T := 0; T < length; T++ { //该层的每个元素：一添加到该层的结果集中；
+			// 二找到该元素的下层元素加入到队列中，方便下次使用
 			myNode := queue.Remove(queue.Front()).(*Node)
 			tmp = append(tmp, myNode.Val)
 			for i := 0; i < len(myNode.Children); i++ {

@@ -24,7 +24,7 @@ import "fmt"
 
 // 方法1：暴力方法，使用新的数组空间，循环取不同的数组往新的数组中放
 
-// 方法2：双指针法-官方 ****
+// 方法2：双指针法-官方，推荐 ****
 // 快指针用来找到非重复的元素
 // 慢指针用来扫描可覆盖的位置
 //时间复杂度： O(n)，其中 n 是数组的长度。快指针和慢指针最多各移动 n  次。
@@ -36,12 +36,11 @@ func f1(nums []int) int {
 	}
 	slow := 1
 	for fast := 1; fast < n; fast++ {
-		if nums[fast] != nums[fast-1] {
+		if nums[fast-1] != nums[fast] {
 			nums[slow] = nums[fast]
 			slow++
 		}
 	}
-	fmt.Println(nums)
 	return slow
 }
 

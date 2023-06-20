@@ -3,12 +3,12 @@ package main
 // 同类型590 589 429
 //LeetCode 589. N 叉树的前序遍历
 
-//方法一：递归-官方
+//方法一：递归-官方，推荐
 //时间复杂度：O(m)，其中 m 为 N 叉树的节点。每个节点恰好被遍历一次。
 //空间复杂度：O(m)，递归过程中需要调用栈的开销，平均情况下为 O(logm)，最坏情况下树的深度为 m−1，
 // 此时需要的空间复杂度为 O(m)。
 func preorder1(root *Node) (ans []int) {
-	var dfs func(*Node)
+	var dfs func(node *Node)
 	dfs = func(node *Node) {
 		if node == nil {
 			return

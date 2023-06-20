@@ -11,7 +11,7 @@ import "container/list"
 // 层序遍历的时候，判断是否遍历到单层的最后面的元素，如果是，就放进result数组中，随后返回result就可以了。
 
 //都一样
-//时间复杂度 : (n)。 每个节点最多进队列一次，出队列一次，因此广度优先搜索的复杂度为线性。
+//时间复杂度 : O(n)。 每个节点最多进队列一次，出队列一次，因此广度优先搜索的复杂度为线性。
 //空间复杂度 : O(n)。每个节点最多进队列一次，所以队列长度最大不不超过 n，所以这里的空间代价为 O(n)。
 
 type TreeNode struct {
@@ -105,7 +105,7 @@ func rightSideView2222(root *TreeNode) (res []int) {
 	return
 }
 
-// 其他方法：深度优先
+// 其他方法：深度优先，推荐
 func rightSideView33(root *TreeNode) (res []int) {
 	var dfs func(node *TreeNode, depth int)
 	dfs = func(node *TreeNode, depth int) {
@@ -115,7 +115,7 @@ func rightSideView33(root *TreeNode) (res []int) {
 		if len(res) < depth {
 			res = append(res, node.Val)
 		}
-		dfs(node.Right, depth+1)
+		dfs(node.Right, depth+1) // 同一级，如果rigth的节点处理了，则下面的左边节点就被上面条件限制处理不了了
 		dfs(node.Left, depth+1)
 	}
 

@@ -11,10 +11,6 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-//LeetCode 94.二叉树的中序遍历
-
-//方法一：递归-官方
-//其他见前序遍历那道题
 func inorderTraversal1(root *TreeNode) (res []int) {
 	var inorder func(node *TreeNode)
 	inorder = func(node *TreeNode) {

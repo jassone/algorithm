@@ -18,6 +18,7 @@ import (
 //输入：s = "ADOBECODEBANC", t = "ABC"
 //输出："BANC"
 
+// todo 待整理
 // 方法一：滑动窗口
 func minWindow(s string, t string) string {
 	// 滑动窗口, 遍历s要更新统计，检查当前窗口是否都含有，是则更新左边界，否则继续遍历

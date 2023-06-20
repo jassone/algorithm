@@ -8,7 +8,7 @@ import "fmt"
 //题意：反转一个单链表。
 //示例: 输入: 1->2->3->4->5->NULL 输出: 5->4->3->2->1->NULL
 
-// 方法1：双指针法/迭代-官方
+// 方法1：双指针法/迭代-官方,推荐
 //总结下来
 // 切断前先存储下一个节点
 // 把指向反一下
@@ -17,11 +17,11 @@ import "fmt"
 //时间复杂度：O(n)，其中 n 是链表的长度。需要遍历链表一次。
 //空间复杂度：O(1)。
 func reverseList1(head *ListNode) *ListNode {
-	var prev *ListNode // 已经反转处理好的链表头
+	var prev *ListNode // 已经反转处理好的链表头，为nil
 	curr := head       // 当前待反转的链表头
 	for curr != nil {
 		next := curr.Next // 临时存储待转换结点的下一个节点
-		curr.Next = prev  // 将待转换结点的下一个节点指向已经反转好的链表头
+		curr.Next = prev  // 将待转换结点的下一个节点指向已经反转好的链表头，第一次循环prev为nill
 		prev = curr       // 把已经反转好的链表头往后移动一位
 		curr = next       // 当前待反转的链表头往后移动一位
 	}
@@ -60,8 +60,8 @@ func main() {
 	List.Next = reverseList1(List.Next)
 	display(List)
 
-	List.Next = reverseList2(List.Next)
-	display(List)
+	//List.Next = reverseList2(List.Next)
+	//display(List)
 }
 
 type ListNode struct {

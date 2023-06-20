@@ -34,7 +34,7 @@ func rotate(matrix [][]int) [][]int {
 	}
 	for i, row := range matrix {
 		for j, v := range row {
-			tmp[j][n-1-i] = v
+			tmp[j][n-i-1] = v
 		}
 	}
 	//copy(matrix, tmp) // 拷贝 tmp 矩阵每行的引用

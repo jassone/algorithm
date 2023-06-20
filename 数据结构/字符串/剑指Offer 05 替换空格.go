@@ -9,7 +9,7 @@ import "fmt"
 //示例 1： 输入：s = "We are happy."
 //输出："We%20are%20happy."
 
-//方法一：字符数组-官方
+//方法一：字符数组-官方，推荐
 // 由于每次替换从 1 个字符变成 3 个字符，使用字符数组可方便地进行替换。建立字符数组地长度为 s 的长度的 3 倍，
 // 这样可保证字符数组可以容纳所有替换后的字符。
 
@@ -18,7 +18,7 @@ import "fmt"
 func replaceSpace1(s string) string {
 	length := len(s)
 	res := make([]byte, length)
-	for _, v := range []rune(s) {
+	for _, v := range []rune(s) { // 这里换成[]byte(s)也可以,因为多字节字符不会出现空字符
 		if v == ' ' {
 			res = append(res, []byte("%20")...)
 		} else {
@@ -79,5 +79,5 @@ func replaceSpace2(s string) string {
 func main() {
 	str := "adf rtr tyy"
 	fmt.Println(replaceSpace1(str))
-	fmt.Println(replaceSpace2(str))
+	//fmt.Println(replaceSpace2(str))
 }

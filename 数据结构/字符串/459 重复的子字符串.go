@@ -121,6 +121,6 @@ func repeatedSubstringPattern3(s string) bool {
 
 func main() {
 	str := "abab"
-	fmt.Println(repeatedSubstringPattern(str))
+	fmt.Println(repeatedSubstringPattern1(str))
 
 }

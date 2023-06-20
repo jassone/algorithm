@@ -23,8 +23,8 @@ type MyQueue struct {
 /** Initialize your data structure here. */
 func Constructor() MyQueue {
 	return MyQueue{
-		stack: make([]int, 0),
-		back:  make([]int, 0),
+		stack: make([]int, 0), // 真实存储
+		back:  make([]int, 0), // 临时存储
 	}
 }
 

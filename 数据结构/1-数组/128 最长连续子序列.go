@@ -14,18 +14,19 @@ import (
 //输出：4
 //说明：最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。
 
-// 方法1：暴力法(配合hash法)
+// 方法1：暴力法(配合hash法)，推荐
 func f1(arr []int) int {
 	hashmap := make(map[int]bool)
 	for _, i := range arr {
 		hashmap[i] = true
 	}
 	// O(n)
+	//fmt.Println(hashmap)
 
 	result := 0
-	for current := range hashmap { // O(n)
+	for current := range hashmap { // O(n) // 这里遍历每个元素，作为起始元素
 		cnt := 1
-		for hashmap[current+1] { // O(n)
+		for hashmap[current+1] { // O(n) // 每次循环都计算起始元素后面有没有相邻元素
 			current++
 			cnt++
 		}
@@ -71,7 +72,7 @@ func f2(nums []int) int {
 }
 
 func main() {
-	arr := []int{8, 1, 4, 3, 2, 5}
+	arr := []int{8, 1, 3, 2, 5}
 	fmt.Println(f1(arr))
 	fmt.Println(f2(arr))
 }

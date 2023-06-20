@@ -15,12 +15,16 @@ func f1(arr []int) []int {
 			slow++
 		}
 	}
+	// 要多一步，将后面的元素设置为0
+	for ; slow < length; slow++ {
+		arr[slow] = 0
+	}
 
 	return arr
 }
 
-// 方法2：双指针-官方
-// left:满指针，right:快指针
+// 方法2：双指针-官方--推荐
+// left:慢指针，right:快指针
 //时间复杂度：O(n)，其中 n 为序列长度。每个位置至多被遍历两次。
 //空间复杂度：O(1)。只需要常数的空间存放若干变量。
 func moveZeroes(nums []int) []int {
@@ -28,8 +32,6 @@ func moveZeroes(nums []int) []int {
 	for right < n {
 		if nums[right] != 0 {
 			nums[left], nums[right] = nums[right], nums[left]
-			// 其实这里只要替换一个即可
-			//nums[left] = nums[right]
 			left++
 		}
 		right++

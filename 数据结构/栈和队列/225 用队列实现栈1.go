@@ -3,6 +3,10 @@ package main
 import "fmt"
 
 //LeetCode 225. 用队列实现栈
+// 即队列的操作(比如如队列)还是不变，只是当操作栈动作时效果和栈效果一样
+// 队列  栈
+// 尾   栈顶
+// 头   栈尾
 
 //使用队列实现栈的下列操作：
 //push(x) -- 元素 x 入栈
@@ -28,18 +32,19 @@ type MyStack struct {
 
 func Constructor() MyStack {
 	return MyStack{ //初始化
-		queue1: make([]int, 0),
-		queue2: make([]int, 0),
+		queue1: make([]int, 0),// 存放结果数据
+		queue2: make([]int, 0),// 存放临时数据
 	}
 }
 
+// 元素 x 入栈，在队列尾部加入一个元素，需要挪动其余元素
 func (this *MyStack) Push(x int) {
 	//先将数据存在queue2中
 	this.queue2 = append(this.queue2, x)
 	//将queue1中所有元素移到queue2中，再将两个队列进行交换
 	this.Move()
 }
-
+// 重新组装两个队列
 func (this *MyStack) Move() {
 	if len(this.queue1) == 0 {
 		//交换，queue1置为queue2,queue2置为空
@@ -51,7 +56,7 @@ func (this *MyStack) Move() {
 		this.Move()                   //重复
 	}
 }
-
+// 返回栈顶的原始
 func (this *MyStack) Pop() int {
 	val := this.queue1[0]
 	this.queue1 = this.queue1[1:] //去除第一个元素
@@ -59,6 +64,7 @@ func (this *MyStack) Pop() int {
 
 }
 
+// 读取栈顶的原始
 func (this *MyStack) Top() int {
 	return this.queue1[0] //直接返回
 }
@@ -73,5 +79,4 @@ func main() {
 	fmt.Println(stack.Top())
 	fmt.Println(stack.Pop())
 	fmt.Println(stack.Empty())
-
 }
