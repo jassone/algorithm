@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 //LeetCode 225. 用队列实现栈
-// 即队列的操作(比如如队列)还是不变，只是当操作栈动作时效果和栈效果一样
+// 即队列的操作(比如入队列)还是不变，只是当操作栈动作时效果和栈效果一样
 // 队列  栈
 // 尾   栈顶
 // 头   栈尾
@@ -32,8 +32,8 @@ type MyStack struct {
 
 func Constructor() MyStack {
 	return MyStack{ //初始化
-		queue1: make([]int, 0),// 存放结果数据
-		queue2: make([]int, 0),// 存放临时数据
+		queue1: make([]int, 0), // 存放结果数据
+		queue2: make([]int, 0), // 存放临时数据
 	}
 }
 
@@ -44,6 +44,7 @@ func (this *MyStack) Push(x int) {
 	//将queue1中所有元素移到queue2中，再将两个队列进行交换
 	this.Move()
 }
+
 // 重新组装两个队列
 func (this *MyStack) Move() {
 	if len(this.queue1) == 0 {
@@ -56,6 +57,7 @@ func (this *MyStack) Move() {
 		this.Move()                   //重复
 	}
 }
+
 // 返回栈顶的原始
 func (this *MyStack) Pop() int {
 	val := this.queue1[0]

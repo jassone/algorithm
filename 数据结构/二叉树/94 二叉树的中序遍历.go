@@ -30,7 +30,9 @@ func inorderTraversal1(root *TreeNode) (res []int) {
 
 // 要点
 // 中序遍历是左中右，先访问的是二叉树顶部的节点，然后一层一层向下访问，直到到达树左面的最底部，
-//   再开始处理节点（也就是在把节点的数值放进result数组中），这就造成了处理顺序和访问顺序是不一致的。
+//
+//	再开始处理节点（也就是在把节点的数值放进result数组中），这就造成了处理顺序和访问顺序是不一致的。
+//
 // 那么在使用迭代法写中序遍历，就需要借用指针的遍历来帮助访问节点，栈则用来处理节点上的元素。
 func inorderTraversal2(root *TreeNode) (res []int) {
 	stack := []*TreeNode{}
@@ -80,7 +82,7 @@ func reverse(a []int) {
 	}
 }
 
-//方法三：Morris 遍历-官方 todo
+// 方法三：Morris 遍历-官方 todo
 func inorderTraversal3(root *TreeNode) (res []int) {
 	for root != nil {
 		if root.Left != nil {

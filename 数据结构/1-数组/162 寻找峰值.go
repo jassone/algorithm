@@ -23,8 +23,8 @@ import (
 // 方法1 ：遍历
 // 本题首先最容易想到的就是遍历数组，找出第一个符合条件的元素就可以了，这很简单，
 // 但是不满足O(logN)的时间复杂度要求
-//时间复杂度：O(n)，其中 n 是数组 nums 的长度。
-//空间复杂度：O(1)。
+// 时间复杂度：O(n)，其中 n 是数组 nums 的长度。
+// 空间复杂度：O(1)。
 func findPeakElement(nums []int) (idx int) {
 	for i, v := range nums {
 		if v > nums[idx] {
@@ -39,7 +39,7 @@ func findPeakElement(nums []int) (idx int) {
 	return
 }
 
-//遍历2
+// 遍历2
 func f2(nums []int) int {
 	var max int
 	n := len(nums)
@@ -74,13 +74,13 @@ func f2(nums []int) int {
 }
 
 // 方法2：二分法，推荐
-//定义高低两个指针low，high，分别指向数组首尾
-//1 定义中间指针mid=(low+high)/2我们知道二分法的结束标志是low>=high，当low==high的时候，算法肯定结束
-//2 然后我们每次判断中间值，如果中间值处于下降状态，那么可以肯定中间值的左边有比中间值大的数，
+// 定义高低两个指针low，high，分别指向数组首尾
+// 1 定义中间指针mid=(low+high)/2我们知道二分法的结束标志是low>=high，当low==high的时候，算法肯定结束
+// 2 然后我们每次判断中间值，如果中间值处于下降状态，那么可以肯定中间值的左边有比中间值大的数，
 // 而数组两头又是非常小的数，所以峰值肯定在左边，所以我们二分法的下一次开始就是让high=mid
-//3 如果中间值处于上升状态，那么峰值肯定就在中间值的右边，所以二分法的下一次开始就是让low=mid+1
-//你需要仔细感受high=mid和low=mid+1这两个等式，揣摩细微之处，可以发现low随着mid移动，而high最多等于mid，
-//仔细揣摩他们的区别
+// 3 如果中间值处于上升状态，那么峰值肯定就在中间值的右边，所以二分法的下一次开始就是让low=mid+1
+// 你需要仔细感受high=mid和low=mid+1这两个等式，揣摩细微之处，可以发现low随着mid移动，而high最多等于mid，
+// 仔细揣摩他们的区别
 func f1(nums []int) int {
 	low, high := 0, len(nums)-1
 	for low < high {
@@ -92,12 +92,14 @@ func f1(nums []int) int {
 		}
 	}
 
+	// 这里需要修复下，如果low=0和low=len(nums)-1,需要舍去
+
 	return low
 }
 
 // 二分法-官方
-//时间复杂度：O(logn)，其中 nn 是数组 nums 的长度。
-//空间复杂度：O(1)。
+// 时间复杂度：O(logn)，其中 nn 是数组 nums 的长度。
+// 空间复杂度：O(1)。
 func f3(nums []int) int {
 	n := len(nums)
 
@@ -128,13 +130,15 @@ func f3(nums []int) int {
 func main() {
 	//arr := []int{1,2,3,1} // 3
 	arr := []int{1, 2, 3, 1} // 3
+
+	//fmt.Println(findPeakElement(arr))
 	fmt.Println(f1(arr), arr[f1(arr)])
-
-	fmt.Println(f2(arr), arr[f2(arr)])
-
-	fmt.Println(f3(arr), arr[f3(arr)])
-
-	fmt.Println(f4(arr), arr[f4(arr)])
+	//
+	//fmt.Println(f2(arr), arr[f2(arr)])
+	//
+	//fmt.Println(f3(arr), arr[f3(arr)])
+	//
+	//fmt.Println(f4(arr), arr[f4(arr)])
 }
 
 // 其他的

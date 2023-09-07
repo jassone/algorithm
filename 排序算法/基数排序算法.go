@@ -15,8 +15,8 @@ import "fmt"
 func main() {
 	var result [3][]int
 	myarr := []int{1, 3, 3, 1, 1, 2, 2, 2, 2, 3}
-	for i:=0;i<len(myarr);i++ {
-		result[myarr[i]-1] = append(result[myarr[i]-1],myarr[i])
+	for i := 0; i < len(myarr); i++ {
+		result[myarr[i]-1] = append(result[myarr[i]-1], myarr[i])
 	}
 
 	fmt.Println(result)
@@ -26,16 +26,16 @@ func main() {
 // 上面方法有个问题，可能有空数组，比如下面这个demo
 func main2() {
 	myarr := []int{1, 3, 3, 1, 1, 2, 2, 2, 2, 3, 6}
-	maxLen := max(myarr)
-	result := make([][]int, maxLen)
-	for i:=0; i<len(myarr); i++ {
-		result[myarr[i]-1] = append(result[myarr[i]-1],myarr[i])
+	maxNum := max(myarr)
+	result := make([][]int, maxNum)
+	for i := 0; i < len(myarr); i++ {
+		result[myarr[i]-1] = append(result[myarr[i]-1], myarr[i])
 	}
 
 	var res [][]int
-	for _,v := range result {
+	for _, v := range result {
 		if 0 != len(v) {
-			res = append(res,v)
+			res = append(res, v)
 		}
 	}
 
@@ -43,8 +43,8 @@ func main2() {
 }
 func max(nums []int) int {
 	max := 0
-	for _,v := range nums {
-		if (max < v) {
+	for _, v := range nums {
+		if max < v {
 			max = v
 		}
 	}

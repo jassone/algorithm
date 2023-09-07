@@ -8,44 +8,29 @@ package main
 
 import "fmt"
 
-//获取切片里面的最大值
-func SelectMax(arr []int) int{
-	len := len(arr)
-	max := arr[0]
-
-	for i := 1;i < len ;i++ {
-		if max < arr[i] {
-			max = arr[i]
-		}
-	}
-
-	return max
-}
-
-//切片排序
+// 切片排序
 func SelectSort(arr []int) []int {
 	length := len(arr)
-	for i:=0;i<length;i++ {
-		min := i
-		for j := i + 1; j < length; j++ {
-			if arr[min] > arr[j] {
-				min = j
+	for i := 0; i < length-1; i++ {
+		// 假设最小值是无序区的第一个位置
+		min_loc := i
+		// 找到最小的下标值， 自己不用跟自己比较
+		for j := i + 1; j < len(arr); j++ {
+			if arr[min_loc] > arr[j] {
+				min_loc = j
 			}
 		}
-
-		if i != min {
-			arr[min],arr[i]  = arr[i],arr[min]
+		if i != min_loc {
+			arr[min_loc], arr[i] = arr[i], arr[min_loc]
 		}
 	}
 
 	return arr
 }
 
-//选择排序
+// 选择排序
 func main() {
 	arr := []int{3, 9, 10, 30, 2, 5, 45, 8, 63, 234, 12}
-	max := SelectMax(arr)
 	selectsort := SelectSort(arr)
-	fmt.Println(max)
 	fmt.Println(selectsort)
 }

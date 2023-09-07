@@ -28,7 +28,7 @@ type TreeNode struct {
 }
 
 // 方法一：二分查找 + 位运算 - 官方
-//https://leetcode.cn/problems/count-complete-tree-nodes/solution/wan-quan-er-cha-shu-de-jie-dian-ge-shu-by-leetco-2/
+// https://leetcode.cn/problems/count-complete-tree-nodes/solution/wan-quan-er-cha-shu-de-jie-dian-ge-shu-by-leetco-2/
 func countNodes(root *TreeNode) int {
 	if root == nil {
 		return 0
@@ -66,11 +66,11 @@ func countNodes(root *TreeNode) int {
 
 //递归遍历的顺序依然是后序（左右中）。
 
-// 方法1：递归
+// 方法1：递归，推荐
 //时间复杂度：O(n)
 //空间复杂度：O(log n)，算上了递归系统栈占用的空间
 
-//本题直接就是求有多少个节点，无脑存进数组算长度就行了。
+// 本题直接就是求有多少个节点，无脑存进数组算长度就行了。
 func countNodes11(root *TreeNode) int {
 	if root == nil {
 		return 0
@@ -99,8 +99,8 @@ func countNodes11(root *TreeNode) int {
 
 // 如果整个树不是满二叉树，就递归其左右孩子，直到遇到满二叉树为止，用公式计算这个子树（满二叉树）的节点数量。
 
-//时间复杂度：O(log n × log n)
-//空间复杂度：O(log n)
+// 时间复杂度：O(log n × log n)
+// 空间复杂度：O(log n)
 func countNodes22(root *TreeNode) int {
 	if root == nil {
 		return 0
