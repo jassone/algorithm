@@ -17,7 +17,6 @@ func ContingSortAsc(slice []int) {
 	// 借助map，统计排序的数据重新赋值为原序列
 	slice = slice[0:0] // 将原序列清空
 	for i := 0; i < 1000; i++ {
-		// for i := 0; i < 1000; i++ {
 		// 数据出现的次数：m[i]的值
 		for j := 0; j < m[i]; j++ {
 			slice = append(slice, i) // 重新赋值

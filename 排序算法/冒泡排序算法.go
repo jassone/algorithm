@@ -7,10 +7,10 @@ import "fmt"
 
 func maopao(s []int) []int {
 	len := len(s)
-	for i:=0;i<(len-1);i++ {
-		for j:=i+1;j<len;j++ {
-			if (s[i] > s[j]) {
-				s[i],s[j] = s[j],s[i]
+	for i := 0; i < (len - 1); i++ {
+		for j := i + 1; j < len; j++ {
+			if s[i] > s[j] {
+				s[i], s[j] = s[j], s[i]
 			}
 		}
 	}
